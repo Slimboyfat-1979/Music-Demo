@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+:root {
+  --color-one: rgba(96, 30, 79);
+  --color-two: rgba(255, 203, 160);
+  --main-font: "Josefin Sans", sans-serif;
+  --paragraph-font: "Lato", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-family: var(--paragraph-font);
+  line-height: 25px;
+}
+
+#hero #mobile-nav {
+  display: none;
+}
+
+#hero {
+  height: auto;
+  width: 100vw;
+  background-color: black;
+  /* position: relative; */
+}
+
+#hero #desktop-nav {
+  width: 100%;
+  display: flex;
+  padding: 10px 100px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-one);
+}
+
+#hero #desktop-nav img {
+  width: 150px;
+}
+
+#hero #desktop-nav ul {
+  display: flex;
+}
+
+#hero #desktop-nav ul li {
+  font-size: 1.5rem;
+  padding: 0 20px;
+  font-family: var(--main-font);
+}
+
+#hero #desktop-nav ul li a {
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+#hero #desktop-nav ul li a::after {
+  position: absolute;
+  content: "";
+  bottom: -5px;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--color-two);
+  transition: width 0.3s ease;
+  border-radius: 50px;
+}
+
+#hero #desktop-nav ul li a:hover::after {
+  width: 100%;
+}
+
+#hero .main-content {
+  padding: 50px 300px 0 300px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+}
+
+#hero .main-content .intro {
+  color: white;
+  font-family: var(--main-font);
+  text-align: left;
+  flex-grow: 1;
+  padding: 50px 100px;
+}
+
+#hero .main-content .img-container img {
+  object-fit: cover;
+  vertical-align: bottom;
+  width: 500px;
+}
+
+#hero .main-content .intro h1 {
+  font-size: 5rem;
+}
+
+#hero .main-content .intro h2 {
+  padding: 10px 0;
+  font-size: 3rem;
+}
+
+#hero .main-content .intro > h3 {
+  color: var(--color-two);
+  font-size: 1.5rem;
+  padding: 10px 0;
+}
+
+/* Player Styling */
+
+.player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  padding: 20px 0;
+}
+
+.player button {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: initial;
+  outline: none;
+  border: 2px solid var(--color-two);
+  cursor: pointer;
+}
+
+.player button:active {
+  transform: scale(0.98);
+}
+
+.player button i {
+  color: white;
+  font-size: 2rem;
+}
+
+/* .player button {
+padding: 20px;
+border-radius: 50%;
+border: 1px solid var(--color-two);
+background: transparent;
+cursor: pointer;
+}
+
+.player button i {
+font-size: 1.5rem;
+color: var(--color-two)
+} */
+
+.progress-container {
+  width: 50%;
+  height: 10px;
+  background-color: none;
+  border: 1px solid var(--color-two);
+}
+
+.progress-bar {
+  width: 50%;
+  background-color: var(--color-two);
+  height: 100%;
+}
+
+.song-titles .song-title-container {
+  margin-top: 20px;
+  width: 50%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.song-titles .song-title-container::after,
+.song-titles .song-title-container::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.song-titles .song-title-container::after {
+  background-image: linear-gradient(to left, orange, transparent);
+}
+
+.song-titles .song-title-container::before {
+  background-image: linear-gradient(to right, rgb(0, 174, 255), transparent);
+}
+
+/* #hero .main-content .intro .song-titles {
+position: relative;
+width: 50%;
+text-align: center;
+margin-top: 20px;
+z-index: 1;
+}
+
+#hero .main-content .intro .song-titles::after,
+#hero .main-content .intro .song-titles::before {
+content: '';
+height: 100%;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+z-index: -1;
+}
+
+#hero .main-content .intro .song-titles::before {
+background-image: linear-gradient(to left, hsl(0, 11%, 11%) 11%, transparent);
+}
+
+#hero .main-content .intro .song-titles::after {
+background-image: linear-gradient(to right, #161010 11%, transparent);
+}
+
+#hero .main-content .intro .song-titles h3 {
+font-size: 2rem;
+} */
+
+/* #hero .main-content .intro .song-titles h3 {
+position: relative;
+z-index: 1;
+} */
+
+/* //TO DO: Add functionality for player and adjusts css media queries for Mobile responsiveness in hero */
+
+/* ======================= Media Queries Start =============== */
+
+@media screen and (max-width: 480px) {
+  #hero #desktop-nav {
+    display: none;
+  }
+
+  #hero {
+    overflow: hidden;
+  }
+
+  #hero #mobile-nav {
+    box-shadow: 10px 10px 20px black;
+    position: absolute;
+    background-color: var(--color-one);
+    height: 200px;
+    width: 200px;
+    border-bottom-right-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: growMenu;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    opacity: 1;
+  }
+
+  @keyframes growMenu {
+    0% {
+      height: 200px;
+      width: 200px;
+    }
+    100% {
+      height: 1000px;
+      width: 1000px;
+    }
+  }
+
+  #mobile-nav .hamburger {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translate(150%, 200%);
+    /* transform: translate(350%, 450%); */
+  }
+
+  #mobile-nav .hamburger div {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+  }
+
+  #mobile-nav .nav-container {
+    position: absolute;
+    top: 638px;
+    left: 592px;
+    font-size: 2rem;
+    font-family: var(--main-font);
+    text-align: center;
+    transform: translateX(-200%);
+    transition: transform 1.5s ease;
+  }
+
+  #mobile-nav .nav-container.show {
+    transform: translateX(0);
+  }
+
+  #mobile-nav .nav-container ul li {
+    padding: 10px 0;
+    text-shadow: 4px 4px 4px black;
+  }
+
+  #mobile-nav .nav-container ul li a {
+    color: white;
+  }
+
+  #hero .main-content {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #hero .main-content .intro {
+    padding: 20px 50px;
+    text-align: center;
+  }
+
+  .player,
+  .progress-container {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  #hero .main-content .img-container img {
+    width: 200px;
+  }
+}
+
+/* figure out why there is overflow on mobile */

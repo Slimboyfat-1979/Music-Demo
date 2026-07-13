@@ -1,0 +1,84 @@
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const app = express();
+const port = 3000;
+
+app.use(express.urlencoded({extended: true}));
+
+let gigs = [];
+
+app.get('/form', (req, res) => {
+    const formPath = path.join(__dirname, 'gigform.html');
+    res.sendFile(formPath);
+})
+
+app.post('/form-submit', (req, res) => {
+
+    let gigValues = {};
+
+    gigValues.gigName = req.body.eventName;
+    gigValues.gigVenue = req.body.eventVenue;
+    gigValues.gigTime = req.body.eventTime;
+    gigValues.gigPrice = req.body.eventPrice;
+    gigValues.gigDate = req.body.eventDate;
+
+    gigs.push(gigValues);
+
+    gigs.forEach(gig => {
+        console.log(gig);
+    })
+    
+})
+
+
+
+app.listen(port, () => {
+    console.log("Listening on port 3000")
+})
+
+
+<% if (events.length === 0) { %>
+                    <div class="info info-1">
+                        <span>$35</span>
+                        <img src="assets/01.jpg" alt="">
+                        <div class="details">
+                            <h2>Gig Info</h2>
+                            <small>23 Jul 2027 / 8:30pm / Oceanview Resort</small>
+                            <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora officia nulla unde neque vitae cumque praesentium consequatur consequuntur ea eum illo iure eaque dolorum nostrum accusamus, distinctio, recusandae ipsum dolorem ratione. Consequatur quam hic ipsam cum temporibus sit, repellendus dignissimos sint quae asperiores ad dolor neque, saepe facilis, aliquam est!</p>
+                        </div>
+                    </div>
+                    <div class="info info-1">
+                        <span>$35</span>
+                        <img src="assets/02.jpg" alt="">
+                        <div class="details">
+                            <h2>Gig Info</h2>
+                            <small>23 Jul 2027 / 8:30pm / Oceanview Resort</small>
+                            <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora officia nulla unde neque vitae cumque praesentium consequatur consequuntur ea eum illo iure eaque dolorum nostrum accusamus, distinctio, recusandae ipsum dolorem ratione. Consequatur quam hic ipsam cum temporibus sit, repellendus dignissimos sint quae asperiores ad dolor neque, saepe facilis, aliquam est!</p>
+                        </div>
+                    </div>
+                    <div class="info info-1">
+                        <span>$45</span>
+                        <img src="assets/03.jpg" alt="">
+                        <div class="details">
+                            <h2>Gig Info</h2>
+                            <small>19 Mar 2028 / 7:45pm / Lakeside Pavilion</small>
+                            <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora officia nulla unde neque vitae cumque praesentium consequatur consequuntur ea eum illo iure eaque dolorum nostrum accusamus, distinctio, recusandae ipsum dolorem ratione. Consequatur quam hic ipsam cum temporibus sit, repellendus dignissimos sint quae asperiores ad dolor neque, saepe facilis, aliquam est!</p>
+                        </div> 
+                    </div> 
+                    <% } else { %>
+                        <% events.forEach(event => { %>
+                            <div class="info info-1">
+                                <span>$<%= event.eventPrice %></span>
+                                <img src="assets/03.jpg" alt="">
+                                <div class="details">
+                                    <h2><%= event.eventName %></h2>
+                                    <small><%= event.eventDate %> / <%= event.eventTime %> / <%= event.eventVenue %></small>
+                                    <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px"><%= event.eventDescription %></p>
+                                </div> 
+                            </div> 
+                        <% }) %>
+                    <% } %>    

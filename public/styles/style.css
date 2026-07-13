@@ -1,0 +1,776 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+    --color-one: #601e4f;
+    --color-two: #ffcba0;
+    --main-font: "Josefin Sans", sans-serif;
+    --paragraph-font: "Lato", sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-family: var(--paragraph-font);
+    line-height: 2rem;
+}
+
+#hero #mobile-nav {
+    display: none;
+    
+}
+
+#hero {
+    height: auto;
+    width: 100vw;
+    background-color: rgb(0, 0, 0);
+
+    /* position: relative; */
+    
+}
+
+#hero #desktop-nav {
+    width: 100%;
+    display: flex;
+    padding: 10px 100px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-one);
+}
+
+#hero #desktop-nav img {
+    width: 150px;
+}
+
+#hero #desktop-nav ul {
+    display: flex;
+}
+
+#hero #desktop-nav ul li {
+    font-size: 1.5rem;
+    padding: 0 20px;
+    font-family: var(--main-font);
+}
+
+
+#hero #desktop-nav ul li a {
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+
+#hero #desktop-nav ul li a::after {
+    position: absolute;
+    content: '';
+    bottom: -5px;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background-color: var(--color-two);
+    transition: width 0.3s ease;
+    border-radius: 50px;
+}
+
+#hero #desktop-nav ul li a:hover::after {
+    width: 100%;
+}
+
+#hero .main-content {
+    padding: 50px 300px 0 300px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    
+}
+
+#hero .main-content .intro {
+    color: white;
+    font-family: var(--main-font);
+    text-align: left;
+    flex-grow: 1;
+    padding: 62px 100px;
+   
+}
+
+
+#hero .main-content .img-container {
+    display: flex;
+    align-items: flex-end;
+}
+
+#hero .main-content .img-container img {
+    object-fit: cover;
+    width: 750px;
+    transform: translateY(40px);
+}
+
+#hero .main-content .intro h1 {
+    font-size: 4.5rem;
+}
+
+#hero .main-content .intro h2 {
+    padding: 10px 0;
+    font-size: 3rem;
+}
+
+#hero .main-content .intro h3 {
+    color: var(--color-two);
+    font-size: 1.5rem;
+    padding: 10px 0;
+}
+
+
+
+/* Player Styling */
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 220px;
+    padding: 20px 0;
+}
+
+.player button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--color-two);
+    background: transparent;
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    flex-shrink: 0;
+}
+
+.player button:active {
+    transform: scale(0.98);
+}
+
+.player button i {
+    font-size: 1.25rem;
+    color: var(--color-two)
+}
+
+.progress-container {
+    max-width: 220px;
+    height: 10px;
+    background-color: none;
+    border: 1px solid var(--color-two);
+    cursor: pointer;
+}
+
+.progress-bar {
+    width: 0%;
+    background-color: var(--color-two);
+    height: 100%;
+}
+
+.song-titles {
+    max-width: 50%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.song-titles::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(to right, black, transparent);
+    width: 10%;
+    z-index: 2;
+}
+
+.song-titles::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(to left, black, transparent);
+    width: 10%;
+    z-index: 2;
+}
+
+.song-titles h3 {
+    transform: translateX(0%);
+    transition: transform 1s linear;
+    color: white !important;
+    font-family: var(--paragraph-font);
+    font-size: 1.25rem !important;
+    letter-spacing: 2px;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.background {
+    background-image: url('/assets/singer.jpg');
+    height: 75vh;
+    width: 100vw;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.background::after {
+    content: '';
+    position: absolute;
+    background-color: black;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.biography {
+    color: var(--color-two);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 50px 300px;
+    align-items: center;
+}
+
+.biography .img {
+   flex-grow: 0;
+   flex-basis: 0;
+   position: relative;
+   top: 100px;
+}
+
+.biography .img img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.biography .img::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    border: 7px double var(--color-two);
+    position: absolute;
+    left: -50px;
+    bottom: 40px;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+
+.biography .blurb {
+    font-family: var(--main-font);
+    flex-basis: 0;
+    flex-grow: 1;
+    padding: 0 100px;;
+}
+
+.biography .blurb h2 {
+    color: var(--color-one);
+    font-size: 3rem;
+    padding: 10px 0;
+}
+
+.biography .blurb h4 {
+    font-size: 1.75rem;
+    cursor: pointer;
+}
+
+.biography .blurb p {
+    color: white;
+    padding: 10px 0;
+}
+
+.gig-container {
+    padding: 50px 300px;
+}
+
+.gig-container h3 {
+    font-family: var(--main-font);
+    font-size: 3rem;
+    text-align: center;
+    padding: 20px 0; 
+}
+
+.gig-container h3 span {
+    color: var(--color-one)
+}
+
+.gig-info {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+#testimonials {
+   height: 150px;
+}
+
+#testimonials {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+   
+}
+
+.slider {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 300;
+    font-family: var(--paragraph-font);
+    font-style: italic;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+
+.info {
+    font-family: var(--main-font);
+    height: 600px;
+    width: 80%;
+    border: 2px double white;
+    position: relative;
+    cursor: pointer;
+}
+
+.info span {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    font-size: 2rem;
+    top: 3%;
+    right: 3%;
+    font-family: var(--main-font);
+}
+
+.gig-info .info img {
+    filter:blur(2px) brightness(0.6);
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.gig-info .info .details {
+    position: absolute;
+    color: white;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--color-one);
+    height: 10vh;
+    overflow: hidden;
+    opacity: 0.9;
+    text-align: center;
+    transition: height 0.2s linear;
+    padding: 30px 30px;
+}
+
+.gig-info .info:hover .details {
+    height: 30vh;
+}
+
+.form-container  {
+    padding: 50px 300px;
+    text-align: center;
+}
+
+.form-container > div {
+    font-family: var(--main-font);
+    font-size: 2rem;
+}
+
+.form-container > div:first-child {
+    padding-bottom: 50px;
+}
+
+.form-container > div small {
+    font-style: italic;
+}
+
+.form-container > h2 {
+    font-size: 3rem;
+    font-family: var(--main-font);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    width: 140px;
+    text-align: left;
+    margin-right: 40px;
+    font-size: 2rem;
+    font-family: var(--main-font);
+  }
+  
+  input[type="text"], input[type="email"] {
+    /* width: 300px;
+    height: 30px; */
+    width: 300px;
+    border-radius: 0px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--color-one);
+    font-size: 1.5rem;
+    font-family: var(--main-font);
+  }
+  
+  textarea {
+    width: 300px;
+    height: 100px;
+    border: 2px solid var(--color-one);
+    font-size: 1.5rem;
+    font-family: var(--paragraph-font);
+    outline: none;
+  }
+  
+  input[type="submit"] {
+    width: 150px;
+    height: 40px;
+    background-color: var(--color-one);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--main-font);
+    font-size: 1.5rem;
+    transform: translateX(50%);
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #571847;
+  }
+
+  .contact {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+    font-family: var(--main-font);
+
+  }
+
+  .contact .contact-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .contact .contact-info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+
+/* //TO DO: Add functionality for player and adjusts css media queries for Mobile responsiveness in hero */
+
+/* ======================= Media Queries Start =============== */
+
+@media screen and (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    #hero #desktop-nav {
+        display: none
+    }
+
+    #hero {
+        overflow: hidden;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #hero #mobile-nav {
+        box-shadow: 10px 10px 20px black;
+        position: absolute;
+        background-color: var(--color-one);
+        height: 200px;
+        width: 200px;
+        border-bottom-right-radius: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+        /* animation-play-state: paused; */
+   
+    }
+
+    .nav-container {
+        position: absolute;
+        color: white;
+        top: 62%;
+        left: 60%;
+        display: none;
+        border-bottom-right-radius: 50%;    
+    }
+
+   
+
+    .nav-container ul {
+        color: white;
+        position: absolute;
+        top: 67%;
+        left: 64%;
+        text-align: center;
+    }
+
+  
+
+    .nav-container ul li {
+        padding: 5px 0;
+        text-shadow: 10px 10px 10px black;
+    }
+
+    .nav-container ul li a {
+        font-family: var(--main-font);
+        font-size: 2.5rem;
+        color: white;
+     
+    }
+  
+    @keyframes growMenu {
+        0% {
+            height: 200px;
+            width: 200px;
+        }
+        100%{
+            height: 1000px;
+            width: 1000px;
+        }
+    }
+
+    @keyframes shrinkMenu {
+        0%{
+            height: 1000px;
+            width: 1000px;
+        }
+        100%{
+            height: 200px;
+            width: 200px;
+        }
+    }
+
+
+
+     #mobile-nav .hamburger {
+        position: absolute;
+        width: 30px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform: translate(150%, 200%);
+        /* transform: translate(350%, 450%); */
+    }
+
+    #mobile-nav .hamburger div {
+        width: 100%;
+        height: 2px;
+        background-color: white;
+    }
+
+
+    #hero .main-content {
+        padding: 112px 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #hero .main-content .intro {
+        padding: 20px 50px;
+        text-align: center;
+    }
+
+    .player, .progress-container {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    #hero .main-content .img-container img {
+        width: 200px;
+    }
+
+    .song-titles {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .background {
+        height: auto;
+    }
+
+    .biography {
+        flex-direction: column-reverse;
+        padding: 20px 20px;
+        text-align: center;
+    }
+
+    .biography .blurb {
+        padding: 0 20px;
+    }
+
+    .biography .img img {
+        display: none;
+    }
+
+    .biography .img {
+        top: 0;
+    }
+
+    .gig-info {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gig-container {
+        padding: 50px 0;
+    }
+
+    .gig-container .info img {
+        object-fit: contain;
+    }
+
+    .form-group {
+        flex-direction: column;
+      
+    }
+
+    .form-container {
+        padding: 50px 30px;
+    }
+
+    .contact {
+        flex-direction: column;
+    }
+
+    .contact .contact-info {
+        padding: 40px 0
+    }
+    
+    label {
+        text-align: center;
+        margin: 0 0 20px 0;
+    }
+
+    input[type="submit"] {
+        transform: translate(0);
+    }
+
+    .slide {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    #testimonials .slide {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1280px) {
+   
+
+    #hero .main-content .img-container img {
+        width: 500px;
+        display: flex;
+        margin: 0 auto;
+    }
+
+    #hero .main-content .intro {
+        text-align: center;
+    }
+
+    .player,.progress-container {
+        margin: 0 auto;
+    }
+
+    #hero .main-content {
+        flex-direction: column;
+        padding: 50px 50px;
+    }
+
+    .biography {
+        padding: 50px 100px;
+    }
+
+    .biography .img {
+        top: 50%;
+    }
+
+    .biography .blurb {
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .form-container {
+        padding: 50px;
+    }
+
+   .background {
+    height: auto;
+   }
+
+   .gig-container {
+    padding: 40px 33px
+   }
+
+    .contact {
+        flex-direction: column;
+    }
+
+    input[type="submit"] {
+        transform: translate(0);
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* figure out why there is overflow on mobile */

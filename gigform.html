@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Main Site</title>
+    <style>
+        body {
+            background-color: #601e4f;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        form {
+            width: 20%;
+        }
+
+        form label, button {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            height: 30px;
+            outline: none;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            width: 50%;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Enter Your Details Below To Update Your Site</h1>
+    <form action="/formsubmit" method="post">
+        <label for="" aria-placeholder="Enter Data">Event Name</label>
+        <input type="text" name="eventName">
+        <label for="" aria-placeholder="Enter Data">Venue</label>
+        <input type="text" name="eventVenue">
+        <label for="" aria-placeholder="Enter Data">Time</label>
+        <input type="text" name="eventTime">
+        <label for="" aria-placeholder="Enter Data">Date</label>
+        <input type="text" name="eventDate">
+        <label for="" aria-placeholder="Enter Data">Event Price</label>
+        <input type="text" name="eventPrice">
+        <label for="">Event Details</label>
+        <textarea id="" name="eventDescription"></textarea>
+        <button type="submit" name="action" value="update">Click To Update</button>
+        <button type="submit" name="action" value="purge">Click To Purge (Irreversible action)</button>
+    </form>
+</body>
+</html>

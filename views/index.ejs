@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/8dabcbb496.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="scripts/script.js"></script>
+    <title>Kathy May Music</title>
+  </head>
+  <body>
+    <section id="hero">
+      <nav id="desktop-nav">
+        <a href="#contact">
+            <img
+            src="./assets/Fiverr Premium Kit/Colored Logo Files/Transparent Logo.png"
+            alt=""
+          />
+        </a>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#music">Music</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <nav id="mobile-nav">
+        <div class="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                     <li>
+                        <a href="#music">Music</a>
+                    </li>
+                     <li>
+                        <a href="#testimonials">Testimonials</a>
+                    </li>
+                     <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            </div>
+      </nav>
+      <div class="main-content">
+        <div class="intro">
+          <h1>Kath May<span style="color: rgba(96, 30, 79)" </span> Music</h1>
+           
+          <h2>Singer & Pianist</h2>
+          <h3>Weddings | Functions | Corporate Events</h3>
+          <p>
+            Get ready to be enchanted by Kath May, Nelson's own Fleetwood Mac songstress! With captivating vocals and a passion for the classics, Kath brings the timeless magic of Stevie Nicks and Co. to life in intimate performances that will leave you spellbound and yearning for more.
+          </p>
+          <div class="player">
+            <audio class="audio" src=""></audio>
+            <button class="backward-btn">
+              <i class="fa-solid fa-backward"></i>
+            </button>
+            <button class="play-btn">
+              <i id="playIcon" class="fa-solid fa-play"></i>
+            </button>
+            <button class="forward-btn">
+              <i class="fa-solid fa-forward"></i>
+            </button>
+          </div>
+          <div class="progress-container">
+            <div class="progress-bar"></div>
+          </div>
+          <div class="song-titles">
+            <h3></h3>
+          </div>
+          <p>
+            This exclusive collection features Kath's captivating renditions of Stevie Nicks' most beloved songs, carefully crafted to transport you to a world of dreams, love, and mystique. Press play and let the enchantment begin.
+          </p>
+        </div>
+        <div class="img-container">
+          <img src="./assets/singer-fgirl.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+     <div class="background">
+        <div class="biography">
+            <div class="img">
+                <img src="assets/singer_02.jpg" alt="">
+            </div>
+            <div class="blurb">
+                <h2>Biography</h2>
+                <h3>Echoes of Fleetwood Mac, Soul of Kath May</h3>
+                <p>
+                    Nelson-based singer-songwriter Kath May has always been under the spell of Fleetwood Mac's timeless harmonies and poetic lyrics. With a voice that echoes the haunting beauty of Stevie Nicks, Kath weaves her own magic into the band's beloved classics.
+                    A lifelong musician, Kath cut her teeth on the Nelson music scene, performing in various bands and collaborations before discovering her true calling as a Fleetwood Mac interpreter. Her mesmerizing live shows have captivated audiences across the South Island, transporting them to a world of dreams, love, and mystique.
+                    With a setlist that spans Fleetwood Mac's iconic discography, from "Rhiannon" to "Landslide", Kath May's performances are a must-experience for fans of the legendary band. Join her on a journey through the music that has inspired generations – and let the enchantment begin.</p>
+                    <h4><a style="color:#ffcba0" href="#contact">Join the Enchantment: Book Kath May for Your Next Event</a></h4>
+            </div>
+        </div>
+     </div>
+    </section>
+    <section id="music" style="background-color: black;">
+        <div class="gig-container">
+            <h3 style="color: white">Events and <span>Shows</span></h3>
+            <div class="gig-info">     
+                <% if(events.length === 0) { %>
+                    <div class="info info-1">
+                        <span></span>
+                        <img src="assets/01.jpg" alt="">
+                        <div class="details">
+                          <h2>Coming Soon!</h2>
+                          <small>TBD</small>
+                          <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px">Details Coming Soon!</p>
+                        </div>
+                      </div>
+                      <div class="info info-1">
+                        <span></span>
+                        <img src="assets/02.jpg" alt="">
+                        <div class="details">
+                          <h2>Coming Soon!</h2>
+                          <small>TBD</small>
+                          <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px">Details Coming Soon!</p>
+                        </div>
+                      </div>
+                      <div class="info info-1">
+                        <span></span>
+                        <img src="assets/03.jpg" alt="">
+                        <div class="details">
+                          <h2>Coming Soon!</h2>
+                          <small>TBD</small>
+                          <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px">Details Coming Soon!</p>
+                        </div>
+                      </div>
+                <% } else if(events.length === 1) { %>
+                    <div class="info info-1">
+                        <span>$<%= events[0].eventPrice %></span>
+                        <img src="assets/01.jpg" alt="">
+                        <div class="details">
+                          <h2><%= events[0].eventName %></h2>
+                          <small><%= events[0].eventDate %> / <%= events[0].eventTime %> / <%= events[0].eventVenue %></small>
+                          <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px"><%= events[0].eventDescription %></p>
+                        </div>
+                      </div>
+                      <div class="info info-1">
+                        <span></span>
+                        <img src="assets/02.jpg" alt="">
+                        <div class="details">
+                          <h2>Coming Soon!</h2>
+                          <small>TBD</small>
+                          <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px">Details Coming Soon!</p>
+                        </div>
+                      </div>
+                      <div class="info info-1">
+                        <span></span>
+                        <img src="assets/03.jpg" alt="">
+                        <div class="details">
+                          <h2>Coming Soon!</h2>
+                          <small>TBD</small>
+                          <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px">Details Coming Soon!</p>
+                        </div>
+                      </div>
+                 <% } else if(events.length === 2) { %>
+                    <div class="info info-1">
+                        <span>$<%= events[0].eventPrice %></span>
+                        <img src="assets/01.jpg" alt="">
+                        <div class="details">
+                          <h2><%= events[0].eventName %></h2>
+                          <small><%= events[0].eventDate %> / <%= events[0].eventTime %> / <%= events[0].eventVenue %></small>
+                          <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px"><%= events[0].eventDescription %></p>
+                        </div>
+                      </div>
+                      <div class="info info-1">
+                        <span>$<%= events[1].eventPrice %></span>
+                        <img src="assets/02.jpg" alt="">
+                        <div class="details">
+                          <h2><%= events[1].eventName %></h2>
+                          <small><%= events[1].eventDate %> / <%= events[1].eventTime %> / <%= events[1].eventVenue %></small>
+                          <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px"><%= events[1].eventDescription %></p>
+                        </div>
+                      </div>
+                      <div class="info info-1">
+                        <span></span>
+                        <img src="assets/03.jpg" alt="">
+                        <div class="details">
+                          <h2>Coming Soon!</h2>
+                          <small>TBD</small>
+                          <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px">Details Coming Soon!</p>
+                        </div>
+                      </div>
+                <% }else { %>
+                    <% let imgCounter = 1 %>
+                    <% events.forEach(event => { %>
+                        <div class="info info-1">
+                            <span>$<%= event.eventPrice %></span>
+                            <img src="assets/0<%= imgCounter %>.jpg" alt="">
+                            <div class="details">
+                              <h2><%= event.eventName %></h2>
+                              <small><%= event.eventDate %> / <%= event.eventTime %> / <%= event.eventVenue %></small>
+                              <p style="color: white; font-size: 0.75rem; line-height: 20px; padding: 20px"><%= event.eventDescription %></p>
+                            </div>
+                          </div>
+                          <% imgCounter++ %>
+                    <% }) %>
+                <% } %>
+                </div>   
+            </div>
+  
+     
+     
+    </section>
+    <section id="testimonials" style="background-color: rgb(32, 32, 32);color: white;">
+        <div class="slider">
+            <div class="slide active">
+                Kath is a true vocal powerhouse!" - David K.
+            </div>
+            <div class="slide">
+                Kath has a voice that can move mountains! - Rachel G
+            </div>
+            <div class="slide">
+                Kath's voice is pure magic! - Emily R
+            </div>
+        </div>
+    </section>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        function changeSlide() {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+        slides[0].classList.add('active');
+        setInterval(changeSlide, 4000); 
+    </script>
+    <section id="contact">
+        <div class="form-container">
+            <div>
+                <h2>Contact Me</h2>
+                <small>All enquiries use the contact form below</small>
+            </div>
+            <div class="contact">
+                <form id="contactForm" action="https://formsubmit.co/kia-kaha@hotmail.co.nz" method="POST">
+                    <input type="hidden" name="_next" value="http://127.0.0.1:5501/thankyou.html">
+                    <input type="hidden" name="_subject" value="New submission!">
+                    <div class="form-group">
+                      <label for="name">Name:</label>
+                      <input type="text" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email:</label>
+                      <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                      <label for="message">Message:</label>
+                      <textarea id="message" name="message"></textarea>
+                    </div>
+                    <input type="submit" value="Send">
+                  
+                  </form>
+                  <div class="contact-info">
+                    <h2>Kath May | Singer </h2>
+                    <div>021 615 593</div>
+                    <div>kathmaymusic@gmail.com</div>
+                    <div>123 main street <br>Nelson <br>tel: 04 1234567</div>
+                    <img style="aspect-ratio: 5/4;" width="250" src="assets/Fiverr Premium Kit/Colored Logo Files/Transparent Logo.png" alt="">
+                  </div>
+            </div>
+        </div>
+    </section>
+    <p style="text-align: center; background-color:black; color: white; padding: 20px 0;">Kath May &copy; All Rights Reserved 2025</p>
+  </body>  
+</html>
+
