@@ -223,7 +223,7 @@ p {
 
 .background {
     background-image: url('/assets/singer.jpg');
-    height: 75vh;
+    min-height: 75vh;
     width: 100vw;
     background-attachment: fixed;
     background-size: cover;
