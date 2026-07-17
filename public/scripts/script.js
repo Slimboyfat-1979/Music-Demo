@@ -33,7 +33,7 @@ playBtn.addEventListener('click', () => {
         audio.setAttribute('src', songPlayingUrl);
     }
 
-    playingState ? playBtn.className = 'fa solid fa-pause' : playBtn.className = 'fa solid fa-play';
+    playingState ? playBtn.className = 'fa-solid fa-pause' : playBtn.className = 'fa-solid fa-play';
     !playingState ? audio.pause() : audio.play();
 
     audio.addEventListener('timeupdate', (e) => {

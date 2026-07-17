@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Thank You | Kath May Music</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            gap: 14px;
+            padding: 20px;
+        }
+
+        .thankyou-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .thankyou h1 {
+            font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+            color: var(--text);
+        }
+
+        .thankyou p {
+            color: var(--text-muted);
+            max-width: 40ch;
+        }
+    </style>
+</head>
+<body>
+    <div class="thankyou">
+        <p class="eyebrow" style="justify-content:center;">Message Sent</p>
+        <h1>Thank you for reaching out</h1>
+        <p>Kath will be in touch soon. Returning you to the main site&hellip;</p>
+    </div>
+    <script>
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 3000);
+    </script>
+</body>
+</html>
